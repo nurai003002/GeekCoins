@@ -1,5 +1,5 @@
 from django_cron import CronJobBase, Schedule
-from apps.coins.models import UserCoins
+from apps.transactions.models import Transactions
 from datetime import timedelta
 
 class CoinCronJob(CronJobBase):
@@ -8,7 +8,7 @@ class CoinCronJob(CronJobBase):
     code = 'coins.CoinCronJob' 
 
     def do(self):  
-        user_coins_list = UserCoins.objects.all()
+        user_coins_list = Transactions.objects.all()
         for user_coins in user_coins_list:
             user_coins.balance -= 4  
             user_coins.save()
