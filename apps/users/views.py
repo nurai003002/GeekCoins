@@ -1,5 +1,4 @@
 from rest_framework.viewsets import GenericViewSet
-from rest_framework.generics import  CreateAPIView, ListAPIView
 from rest_framework import mixins
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
@@ -34,10 +33,3 @@ class UserAPIViewsSet(GenericViewSet,
     
 
     
-class UserRegisterAPI(CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserRegisterSerializer
-
-class UserAPI(ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
