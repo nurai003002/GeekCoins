@@ -18,8 +18,11 @@ class Transactions(models.Model):
             to_user_wallet = self.to_user.wallet
 
             if from_user_balance >= self.amount:
-                self.from_user.balance -= self.amount
-                self.to_user.wallet += self.amount
+                if from_user_balance == from_user_balance:
+                    raise ValueError("Нельзя отправить себе")
+                else:
+                    self.from_user.balance -= self.amount
+                    self.to_user.wallet += self.amount
 
                 self.is_completed = True
 

@@ -18,6 +18,7 @@ class CoinCronJob(CronJobBase):
                     user_coins.save()
                 else:
                     user_coins.balance = 0
+                    user_coins.balance += 4
                     user_coins.save()
                     
             logging.info("CoinCronJob выполнена успешно")
