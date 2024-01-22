@@ -2,7 +2,7 @@
 from rest_framework.viewsets import GenericViewSet
 from rest_framework import mixins
 from rest_framework.response import Response
-from apps.coins.models import UserCoins
+from apps.users.models import User
 from apps.coins.serializers import CoinInfoSerializer
 from django.contrib.auth.models import AnonymousUser
 from rest_framework import status
@@ -12,7 +12,7 @@ class CoinInfoAPIView(GenericViewSet, mixins.ListModelMixin):
 
     def get_queryset(self):
         if self.request.user.is_authenticated:
-            user_coins, created = UserCoins.objects.get_or_create(user=self.request.user)
+            user_coins, created = User.objects.get_or_create(user=self.request.user)
             return [user_coins] 
         else:
             return []
