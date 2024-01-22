@@ -64,7 +64,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'core.urls'
 
 CRON_CLASSES = [
-    'coins.cron.CoinCronJob',
+    'apps.coins.cron.CoinCronJob',
 ]
 
 TEMPLATES = [
